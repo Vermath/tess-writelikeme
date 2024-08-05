@@ -28,7 +28,7 @@ def ask_gpt4o_mini(question, model):
     return response.choices[0].message.content
 
 def main():
-    st.title("Fine Tuned Comment Bot")
+    st.title("HTH Write Like Me")
 
     # Model selection
     selected_model = st.selectbox("Choose a model:", list(models.keys()))
