@@ -20,9 +20,10 @@ def ask_gpt4o_mini(question, model):
     response = client.chat.completions.create(
         model=model,
         messages=[
-            {"role": "system", "content": "You are a food blogger writing for Handle the Heat. You always output your responses as markdown."},
+            {"role": "system", "content": "You are a helpful assistant for Hand the Heat. Your goal is to respond to comments from our users. Do not under any circumstances use proper names in your responses."},
             {"role": "user", "content": question}
-        ]
+        ],
+        max_tokens=16000  # Set the maximum token output to 16k
     )
     return response.choices[0].message.content
 
