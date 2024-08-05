@@ -20,7 +20,7 @@ def ask_gpt4o_mini(question, model):
     response = client.chat.completions.create(
         model=model,
         messages=[
-            {"role": "system", "content": "You are a helpful assistant for Hand the Heat. Your goal is to respond to comments from our users. Do not under any circumstances use proper names in your responses."},
+            {"role": "system", "content": "You are a helpful assistant for Hand the Heat. You rewrite freelancer content to be in the Handle the Heat style. Be sure to format the content beautifully. Use markdown formatting throughout."},
             {"role": "user", "content": question}
         ],
         max_tokens=16000  # Set the maximum token output to 16k
@@ -41,7 +41,8 @@ def main():
             with st.spinner("Generating response... This may take a while."):
                 try:
                     answer = ask_gpt4o_mini(user_question, models[selected_model])
-                    st.write("Response:", answer)
+                    st.subheader("Response:")
+                    st.markdown(answer)  # Use st.markdown() to render the markdown
                 except Exception as e:
                     st.error(f"Error generating response: {str(e)}")
         else:
