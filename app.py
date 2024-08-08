@@ -23,7 +23,7 @@ def ask_gpt4o_mini(question, model):
             {"role": "system", "content": "You are a helpful assistant for Hand the Heat. You rewrite freelancer content to be in the Handle the Heat style. Be sure to format the content beautifully. Use markdown formatting throughout."},
             {"role": "user", "content": question}
         ],
-        max_tokens=16000  # Set the maximum token output to 16k
+        max_tokens=4000  # Set the maximum token output to 16k
     )
     return response.choices[0].message.content
 
